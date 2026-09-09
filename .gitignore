@@ -4,6 +4,6 @@
 .git
 .logs
 .makei-trace
+.ssh
 .vscode
 .bash_history
-.ssh
