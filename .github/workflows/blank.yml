@@ -43,6 +43,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Verify IBMi connection secrets
+        env:
+          IBMI_HOST: ${{ secrets.IBMI_HOST }}
+          IBMI_PORT: ${{ secrets.IBMI_PORT }}
+        run: |
+          if [ -z "$IBMI_HOST" ]; then echo "::error::IBMI_HOST secret vacío o no accesible"; exit 1; fi
+          echo "IBMI_HOST length: ${#IBMI_HOST}"
+          getent hosts "$IBMI_HOST" || (echo "::error::No se pudo resolver el host $IBMI_HOST" && exit 1)
       # Conexión SSH al IBMi: pull del repo y compilación con makei (TOBi)
       # Credenciales tomadas de GitHub Secrets, nunca hardcodeadas
       - name: SSH pull & compile on IBMi
