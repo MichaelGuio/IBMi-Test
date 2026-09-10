@@ -64,6 +64,7 @@ jobs:
           script_stop: true
           debug: true
           script: |
+            export PATH=/QOpenSys/pkgs/bin:$PATH
             export objlibm=MSSGUIO1
             set -x
             cd /home/MSSGUIO/main
