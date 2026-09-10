@@ -52,14 +52,12 @@ jobs:
           username: ${{ secrets.IBMI_USERNAME }}
           password: ${{ secrets.IBMI_PASSWORD }}
           port: ${{ secrets.IBMI_PORT }}
-          envs: IBMI_LIB
           # Aborta al primer error y muestra el handshake SSH para trazabilidad completa
           script_stop: true
           debug: true
           script: |
+            export objlibm=MSSGUIO1
             set -x
             cd /home/MSSGUIO/main
             git pull
-            makei b -e lib1=$IBMI_LIB
-    env:
-      IBMI_LIB: ${{ secrets.IBMI_LIB }}
+            makei build
