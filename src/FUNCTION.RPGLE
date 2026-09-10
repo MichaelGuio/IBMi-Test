@@ -8,5 +8,5 @@ dcl-proc SumarNumeros export;
     numero2 packed(15:5) const;
   end-pi;
 
-  return numero1 + numero2;
+  return (numero1 + numero2);
 end-proc;

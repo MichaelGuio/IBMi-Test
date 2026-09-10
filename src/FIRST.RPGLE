@@ -13,7 +13,7 @@ end-pr;
 dcl-s resultado packed(15:5);
 dcl-s comando char(20);
 
-Dsply 'Hola mundo desde el IFS :(';
+Dsply 'Hola mundo desde GitHub Actions';
 
 resultado = SumarNumeros(10 : 20);
 Dsply ('Resultado: ' + %char(resultado));
