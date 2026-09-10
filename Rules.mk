@@ -1,0 +1,8 @@
+# FIRST.MODULE: src/FIRST.RPGLE
+# FUNCTION.MODULE: src/FUNCTION.RPGLE
+
+# FIRST.PGM: FIRST.MODULE FUNCTION.MODULE
+
+# FIRST.PGM: src/first.rpgle src/function.rpgle
+
+SUBDIRS := src

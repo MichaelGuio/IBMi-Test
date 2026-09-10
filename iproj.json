@@ -1,0 +1,8 @@
+{
+  "description": "Mi primer proyecto con TOBi",
+  "objlib": "MSSGUIO1",
+  "curlib": "MSSGUIO1",
+  "preUsrlib": [
+    "MSSGUIO1"
+  ]
+}

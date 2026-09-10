@@ -1,0 +1,9 @@
+.cache
+.deps
+.evfevent
+.git
+.logs
+.makei-trace
+.ssh
+.vscode
+.bash_history
