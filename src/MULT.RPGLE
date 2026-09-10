@@ -1,5 +1,5 @@
 **free
-ctl-opt dftactgrp(*no) actgrp(*caller);
+// ctl-opt dftactgrp(*no) actgrp(*caller);
 
 // Declaración de variables
 dcl-s factor1 packed(5:2) inz(12.50);

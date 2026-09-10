@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+  # CD: se dispara cuando el PR se mergea (push) a main
+  push:
+    branches: [ "main" ]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,3 +35,29 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+  # CD: solo se ejecuta tras el merge a main (push), no en pull_request
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Conexión SSH al IBMi: pull del repo y compilación con makei (TOBi)
+      # Credenciales tomadas de GitHub Secrets, nunca hardcodeadas
+      - name: SSH pull & compile on IBMi
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.IBMI_HOST }}
+          username: ${{ secrets.IBMI_USERNAME }}
+          password: ${{ secrets.IBMI_PASSWORD }}
+          port: ${{ secrets.IBMI_PORT }}
+          # Aborta al primer error y muestra el handshake SSH para trazabilidad completa
+          script_stop: true
+          debug: true
+          script: |
+            export objlibm=MSSGUIO1
+            set -x
+            cd /home/MSSGUIO/main
+            git pull
+            makei build
