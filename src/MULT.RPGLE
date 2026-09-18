@@ -11,7 +11,7 @@ dcl-s mensaje char(50);
 resultado = factor1 * factor2;
 
 // Preparar y mostrar el mensaje en pantalla
-mensaje = 'Resultado de 12.50 x 4.00 = ' + %char(resultado);
+mensaje = 'Desde mi PC se ve el resultado de 12.50 x 4.00 = ' + %char(resultado);
 dsply mensaje;
 
 // Finalizar el programa indicando el Last Record

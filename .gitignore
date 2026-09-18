@@ -5,5 +5,10 @@
 .logs
 .makei-trace
 .ssh
-.vscode
 .bash_history
+.env
+
+# .vscode
+.vscode/*
+!.vscode/
+!.vscode/actions.json
