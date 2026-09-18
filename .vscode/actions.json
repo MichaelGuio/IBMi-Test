@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Deply & build all",
+    "command": "OPT=*EVENTF objlibm=&objlibm /QOpenSys/pkgs/bin/makei build",
+    "extensions": [
+      "GLOBAL"
+    ],
+    "environment": "pase",
+    "deployFirst": true,
+    "postDownload": [
+      ".logs",
+      ".evfevent"
+    ]
+  }
+]

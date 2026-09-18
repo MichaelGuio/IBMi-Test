@@ -13,8 +13,8 @@ end-pr;
 dcl-s resultado packed(15:5);
 dcl-s comando char(20);
 
-Dsply 'Hola mundo desde GitHub Actions con el inge Migue';
-resultado = SumarNumeros(10 : 20);
+Dsply 'Hola mundo desde mi PC x2';
+resultado = SumarNumeros(15 : 25);
 Dsply ('Resultado: ' + %char(resultado));
 
 comando = 'DLYJOB DLY(60)';
